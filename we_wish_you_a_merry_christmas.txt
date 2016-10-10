@@ -1,0 +1,47 @@
+beats = 55
+delay_bell = 0.21
+delay = 0.2
+live_loop :choir do
+  use_bpm beats
+  use_synth :pretty_bell
+  play :g3, amp: 0.15,sustain: 1.5, release: 1.5
+  sleep 2
+  play :c4, amp: 0.15,sustain: 1.5, release: 1.5
+  sleep 2
+end
+
+live_loop :melody_bell do
+  use_bpm beats
+  use_synth :pretty_bell
+  with_fx :reverb do
+    play_pattern_timed [:g3,:c4,:c4,:d4,:c4,:b3,:a3,:a3], [0.4,0.3,0.2,0.3,0.3,0.4,0.4]
+    sleep delay_bell
+    play_pattern_timed [:a3,:d4,:d4,:e4,:d4,:c4,:b3,:g3], [0.4,0.3,0.2,0.3,0.3,0.4,0.4]
+    sleep delay_bell
+    play_pattern_timed [:g3,:e4,:e4,:f4,:e4,:c4,:a3,:g3,:g3,:a3,:d4,:b3,:c4], [0.4,0.3,0.2,0.3,0.2,0.4,0.4,0.3,0.3,0.3,0.3,0.2]
+    sleep delay_bell
+    play_pattern_timed [:g3,:c4,:c4,:c4,:b3], [0.4,0.3,0.3,0.3]
+    sleep delay_bell
+    play_pattern_timed [:b3,:c4,:b3,:a3,:g3], [0.4,0.3,0.3,0.3]
+    sleep delay_bell
+    play_pattern_timed [:d4,:e4,:d4,:c4,:g4,:g4,:g4,:a4,:d4,:b3,:c4], [0.4,0.3,0.3,0.2,0.2,0.2,0.3,0.3,0.3,0.3]
+  end
+end
+live_loop :melody_piano do
+  use_bpm beats
+  use_synth :piano
+  with_fx :reverb do
+    play_pattern_timed [:g3,:c4,:c4,:d4,:c4,:b3,:a3,:a3], [0.4,0.3,0.2,0.3,0.3,0.4,0.4]
+    sleep delay
+    play_pattern_timed [:a3,:d4,:d4,:e4,:d4,:c4,:b3,:g3], [0.4,0.3,0.2,0.3,0.3,0.4,0.4]
+    sleep delay
+    play_pattern_timed [:g3,:e4,:e4,:f4,:e4,:c4,:a3,:g3,:g3,:a3,:d4,:b3,:c4], [0.4,0.3,0.2,0.3,0.2,0.4,0.4,0.3,0.3,0.3,0.3,0.2]
+    sleep delay
+    play_pattern_timed [:g3,:c4,:c4,:c4,:b3], [0.4,0.3,0.3,0.3]
+    sleep delay
+    play_pattern_timed [:b3,:c4,:b3,:a3,:g3], [0.4,0.3,0.3,0.3]
+    sleep delay
+    play_pattern_timed [:d4,:e4,:d4,:c4,:g3,:g3,:g3,:a4,:d4,:b3,:c4], [0.4,0.3,0.3,0.2,0.2,0.2,0.3,0.3,0.3,0.3]
+    sleep delay
+  end
+end
